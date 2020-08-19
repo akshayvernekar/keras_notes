@@ -100,8 +100,56 @@ Lets plot confusion matrix
 
 ```python
 cm = confusion_matrix(y_true=test_labels, y_pred=rounded_predictions)
-
 cm_plot_labels = ['no_side_effects','side_effects']
-
 plot_confusion_matrix(cm, classes=cm_plot_labels, title='Confusion matrix')
+```
+
+### Saving the model
+
+Saving the whole model:
+
+```python
+model.save("my_model.h5")
+```
+
+Loading the saved model:
+
+```python
+from tensorflow.keras.models import load_model
+model_loaded = load_model("my_model.h5")
+```
+
+Saving the weights of the model:
+
+```python
+model.save_weights("my_model_weight.h5")
+```
+Note: Saving the weights only saves the weights and doesnt save the model architecture.
+
+Saving the configuration of the model:
+
+```python
+json_config = model.to_json()
+```
+Note: Saving the configruation only saves the arhcitecture and doesnt save the weights.
+
+To create the model from weights and json:
+
+```python
+from tensorflow.keras.models import model_from_json
+
+model_by_json = model_from_json(json_config)
+model_by_json.load_weights("my_model_weight.h5")
+```
+
+Other useful functions:
+
+To get weights of model
+```python
+model.get_weights()
+```
+
+To get weights of model
+```python
+model.get_weights()
 ```
