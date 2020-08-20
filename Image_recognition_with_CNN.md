@@ -127,3 +127,13 @@ plot_confusion_matrix(cm, classes=['cat','dog'])
 ```
 
 ![alt text](confusion_matrix.png "confusion_matrix")
+
+
+### Useful Utilities:
+
+Unzipping folder in python
+```python
+import zipfile
+with zipfile.ZipFile(path_to_zip_file, 'r') as zip_ref:
+    zip_ref.extractall(directory_to_extract_to)
+```
